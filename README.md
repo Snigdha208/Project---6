@@ -1,7 +1,7 @@
 # Project-6
 UPI TRANSACTION & FINANCIAL ANALYZER USING LLMS
 
-## Skills take away From this project
+##Skills take away From this project
 ● Data Cleaning and Structuring
 ● Large Language Model Integration
 (OpenAI, Hugging Face)
