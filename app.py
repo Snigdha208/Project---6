@@ -108,6 +108,26 @@ def plot_expense_type_distribution(df):
     ).properties(width=400, height=300, title="Essential vs Non-Essential Spend")
     return pie
 
+def plot_daily_spending_trend(df):
+    df['date_only'] = df['datetime'].dt.date
+    data = df.groupby('date_only')['amount'].sum().reset_index()
+    chart = alt.Chart(data).mark_line(point=True).encode(
+        x=alt.X('date_only:T', title='Date'),
+        y=alt.Y('amount:Q', title='Total Spend'),
+        tooltip=['date_only', 'amount']
+    ).properties(width=700, height=300, title="Daily Spending Trend")
+    return chart
+
+def plot_top_merchants(df, top_n=10):
+    data = df.groupby('merchant_category')['amount'].sum().reset_index()
+    top_merchants = data.sort_values(by='amount', ascending=False).head(top_n)
+    chart = alt.Chart(top_merchants).mark_bar().encode(
+        x=alt.X('merchant_category:N', sort='-y', title='Merchant Categoty'),
+        y=alt.Y('amount:Q', title='Total Spend'),
+        tooltip=['merchant_category', 'amount']
+    ).properties(width=600, height=300, title=f"Top {top_n} Merchants by Spend")
+    return chart
+    
 # ---------- Main App ----------
 def main():
     uploaded_file = st.file_uploader("📂 Upload your cleaned UPI CSV", type=["csv"])
@@ -155,7 +175,12 @@ def main():
             st.altair_chart(plot_category_spend(df), use_container_width=True)
         with col2:
             st.altair_chart(plot_expense_type_distribution(df), use_container_width=True)
+        col3, col4 = st.columns(2)
+        with col3:
+            st.altair_chart(plot_daily_spending_trend(df), use_container_width=True)
 
+        with col4:
+            st.altair_chart(plot_top_merchants(df), use_container_width=True)
         st.markdown('<div class="section-header">💡 AI Financial Advice</div>', unsafe_allow_html=True)
         with st.spinner("💭 Generating advice from Gemini..."):
             if 'advice' not in st.session_state:
@@ -168,4 +193,5 @@ def main():
             st.balloons()
 
 if __name__ == "__main__":
+
     main()
