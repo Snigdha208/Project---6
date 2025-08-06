@@ -1,7 +1,7 @@
 # Project-6
 UPI TRANSACTION & FINANCIAL ANALYZER USING LLMS
 
-OBJECTIVE
+## OBJECTIVE
 Build an AI-powered personal finance app that analyzes UPI transaction data and generates smart, personalized financial recommendations using LLMs (Google Gemini).
 
 DATA PREPROCESSING 
