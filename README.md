@@ -1,6 +1,15 @@
 # Project-6
 UPI TRANSACTION & FINANCIAL ANALYZER USING LLMS
 
+## Skills take away From this project
+● Data Cleaning and Structuring
+● Large Language Model Integration
+(OpenAI, Hugging Face)
+● Financial Data Analysis and
+Recommendation
+● Deployment using Gradio/Streamlit on
+Hugging Face Spaces
+
 ## OBJECTIVE
 Build an AI-powered personal finance app that analyzes UPI transaction data and generates smart, personalized financial recommendations using LLMs (Google Gemini).
 
