@@ -10,6 +10,15 @@ Recommendation
 ● Deployment using Gradio/Streamlit on
 Hugging Face Spaces
 
+### Technical Tags
+● NLP
+● Transformers
+● Binary Classification
+● Text Pair Modeling
+● Streamlit Deployment
+● Hugging Face Spaces
+
+
 ### OBJECTIVE
 Build an AI-powered personal finance app that analyzes UPI transaction data and generates smart, personalized financial recommendations using LLMs (Google Gemini).
 
